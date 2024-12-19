@@ -2,6 +2,7 @@ apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: bookinfo-revision-3-policy
+  namespace: dev1
 spec:
   selector: version == 'v3'
   types:

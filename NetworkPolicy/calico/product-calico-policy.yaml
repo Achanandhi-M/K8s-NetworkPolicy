@@ -13,6 +13,7 @@ spec:
       destination:
         ports:
           - 9080
+      source: {}
   egress:
     - action: Allow
       protocol: TCP
