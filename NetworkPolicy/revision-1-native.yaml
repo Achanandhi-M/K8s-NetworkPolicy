@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: bookinfo-revision-1-policy
+spec:
+  podSelector:
+    matchLabels:
+      version: v1
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: productpage 
+    ports:
+    - protocol: TCP
+      port: 9080 

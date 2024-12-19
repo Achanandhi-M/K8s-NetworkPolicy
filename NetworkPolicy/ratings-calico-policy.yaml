@@ -1,17 +1,17 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: bookinfo-revision-1-policy
-  namespace: dev1
+  name: bookinfo-ratings-policy
 spec:
-  selector: version == 'v1'
+  selector: app == 'ratings'
   types:
     - Ingress
   ingress:
     - action: Allow
       protocol: TCP
       source:
-         selector: app == 'productpage'
+        selector: version == 'v2' || version == 'v3'
       destination:
-        ports: 
-          - 9080 
+        ports:
+          - 9080
+

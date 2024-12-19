@@ -1,0 +1,46 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: bookinfo-productpage-policy
+  namespace: default 
+spec:
+  podSelector:
+    matchLabels:
+      app: productpage 
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from: []
+      ports:
+        - protocol: TCP
+          port: 9080
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              app: details
+      ports:
+        - protocol: TCP
+          port: 9080
+    - to:
+        - podSelector:
+            matchLabels:
+              version: v1
+      ports:
+        - protocol: TCP
+          port: 9080
+    - to:
+        - podSelector:
+            matchLabels:
+              version: v2
+      ports:
+        - protocol: TCP
+          port: 9080
+    - to:
+        - podSelector:
+            matchLabels:
+              version: v3
+      ports:
+        - protocol: TCP
+          port: 9080

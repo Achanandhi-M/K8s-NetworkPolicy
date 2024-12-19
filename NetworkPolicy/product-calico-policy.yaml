@@ -2,7 +2,6 @@ apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: bookinfo-productpage-policy
-  namespace: dev1
 spec:
   selector: app == 'productpage'
   types:

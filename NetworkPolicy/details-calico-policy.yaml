@@ -2,7 +2,6 @@ apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: bookinfo-detail-policy
-  namespace: dev1
 spec:
   selector: app == 'details'
   types:
