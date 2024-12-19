@@ -2,11 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: bookinfo-ratings-policy
-  namespace: default
+  namespace: dev1
 spec:
   podSelector:
     matchLabels:
-      app: ratings 
+      app: ratings
   policyTypes:
     - Ingress
   ingress:
@@ -17,7 +17,10 @@ spec:
                 operator: In
                 values:
                   - v2
-                  - v3 
+                  - v3
+          namespaceSelector:
+            matchLabels:
+              name: dev1
       ports:
         - protocol: TCP
           port: 9080

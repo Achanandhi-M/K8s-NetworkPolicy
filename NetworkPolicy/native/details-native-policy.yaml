@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: bookinfo-detail-policy
+  namespace: dev1
 spec:
   podSelector:
     matchLabels:
@@ -10,7 +11,10 @@ spec:
   - from:
     - podSelector:
         matchLabels:
-          app: productpage 
+          app: productpage
+      namespaceSelector:
+        matchLabels:
+          name: default
     ports:
     - protocol: TCP
-      port: 9080 
+      port: 9080
