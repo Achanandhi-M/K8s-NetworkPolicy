@@ -15,9 +15,6 @@ spec:
         - podSelector:
             matchLabels:
               app: productpage
-          namespaceSelector:
-            matchLabels:
-              name: dev1
       ports:
         - protocol: TCP
           port: 9080

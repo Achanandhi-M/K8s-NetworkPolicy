@@ -18,9 +18,6 @@ spec:
                 values:
                   - v2
                   - v3
-          namespaceSelector:
-            matchLabels:
-              name: dev1
       ports:
         - protocol: TCP
           port: 9080
